@@ -51,6 +51,8 @@ class CustomAdapter1 extends RecyclerView.Adapter<CustomAdapter1.ViewHolder1> {
                 @Override
                 public void onClick(View v) {
                     String vehicleNumber = localDataSet.get(getAdapterPosition()).getVehicleNumber();
+                    String type = localDataSet.get(getAdapterPosition()).getType();
+
                     DatabaseReference ref = FirebaseDatabase.getInstance("https://smart-parking-74085-default-rtdb.firebaseio.com/").getReference();
                     Query applesQuery = ref.child("smartParking").child("parking").child(uid).orderByChild("vehicleNumber").equalTo(vehicleNumber);
                     applesQuery.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -66,43 +68,42 @@ class CustomAdapter1 extends RecyclerView.Adapter<CustomAdapter1.ViewHolder1> {
                             Log.d("onCancelled", databaseError.toException().toString());
                         }
                     });
+                    if (localDataSet.get(getAdapterPosition()).getType().equals("2 Wheeler")) {
+                        Log.d("mm", "hello1");
+                        DatabaseReference reference = FirebaseDatabase.getInstance("https://smart-parking-74085-default-rtdb.firebaseio.com/").getReference().child("smartParking").child("parkingOwner").child(uid);
+                        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                ParkingStation value = dataSnapshot.getValue(ParkingStation.class);
+                                int parkingSpaceTwoWheeler = Integer.parseInt(value.getParkingSpaceTwoWheeler());
+                                int newParkingSpaceTwoWheeler = parkingSpaceTwoWheeler + 1;
+                                reference.child("parkingSpaceTwoWheeler").setValue(String.valueOf(newParkingSpaceTwoWheeler));
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+                    } else {
+                        DatabaseReference reference = FirebaseDatabase.getInstance("https://smart-parking-74085-default-rtdb.firebaseio.com/").getReference().child("smartParking").child("parkingOwner").child(uid);
+                        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                ParkingStation value = dataSnapshot.getValue(ParkingStation.class);
+                                int parkingSpaceFourWheeler = Integer.parseInt(value.getParkingSpaceFourWheeler());
+                                int newParkingSpaceFourWheeler = parkingSpaceFourWheeler + 1;
+                                reference.child("parkingSpaceFourWheeler").setValue(String.valueOf(newParkingSpaceFourWheeler));
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+                    }
                 }
             });
-            if (localDataSet.get(getAdapterPosition()).getType().equals("2 Wheeler")) {
-                Log.d("mm", "hello1");
-                DatabaseReference reference = FirebaseDatabase.getInstance("https://smart-parking-74085-default-rtdb.firebaseio.com/").getReference().child("smartParking").child("parkingOwner").child(uid);
-                reference.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        ParkingStation value = dataSnapshot.getValue(ParkingStation.class);
-                        int parkingSpaceTwoWheeler = Integer.parseInt(value.getParkingSpaceTwoWheeler());
-                        int newParkingSpaceTwoWheeler = parkingSpaceTwoWheeler + 1;
-                        reference.child("parkingSpaceTwoWheeler").setValue(String.valueOf(newParkingSpaceTwoWheeler));
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-            } else {
-                DatabaseReference reference = FirebaseDatabase.getInstance("https://smart-parking-74085-default-rtdb.firebaseio.com/").getReference().child("smartParking").child("parkingOwner").child(uid);
-                reference.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        ParkingStation value = dataSnapshot.getValue(ParkingStation.class);
-                        int parkingSpaceFourWheeler = Integer.parseInt(value.getParkingSpaceFourWheeler());
-                        int newParkingSpaceFourWheeler = parkingSpaceFourWheeler + 1;
-                        reference.child("parkingSpaceFourWheeler").setValue(String.valueOf(newParkingSpaceFourWheeler));
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-            }
-
         }
 
         public TextView getTextView() {

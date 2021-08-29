@@ -78,6 +78,10 @@ public class MainActivity9 extends AppCompatActivity {
                     hashMap.put("type",radioButton.getText().toString());
                     String uid = auth.getCurrentUser().getUid();
                     Toast.makeText(getApplicationContext(), "Value added", Toast.LENGTH_SHORT).show();
+                    textView1.setText("");
+                    textView1.setHint("time");
+                    textView2.setText("");
+                    textView2.setHint("vehicle Number");
                     FirebaseDatabase.getInstance("https://smart-parking-74085-default-rtdb.firebaseio.com/").getReference().child("smartParking").child("parking").child(uid).child(vehicleNumber).updateChildren(hashMap);
                     if(radioButton.getText().equals("2 Wheeler")){
                         Log.d("mm","hello1");

@@ -151,6 +151,10 @@ public class MainActivity8 extends AppCompatActivity {
                 else{
                     hashMap.put("type",radioButton.getText().toString());
                     Toast.makeText(getApplicationContext(), "Slot booked go ahead!", Toast.LENGTH_SHORT).show();
+                    editText1.setText("");
+                    editText1.setHint("time");
+                    editText.setText("");
+                    editText.setHint("vehicle Number");
                     FirebaseDatabase.getInstance("https://smart-parking-74085-default-rtdb.firebaseio.com/").getReference().child("smartParking").child("parking").child(uid).child(vehicleNumber).updateChildren(hashMap);
                     if(radioButton.getText().equals("2 Wheeler")){
                         DatabaseReference reference = FirebaseDatabase.getInstance("https://smart-parking-74085-default-rtdb.firebaseio.com/").getReference().child("smartParking").child("parkingOwner").child(uid);

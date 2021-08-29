@@ -31,14 +31,20 @@ public class MainActivity10 extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         String uid = auth.getCurrentUser().getUid();
         DatabaseReference reference = FirebaseDatabase.getInstance("https://smart-parking-74085-default-rtdb.firebaseio.com/").getReference().child("smartParking").child("parking").child(uid);
-        reference.addValueEventListener(new ValueEventListener() {
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 vehicles.clear();
                 for (DataSnapshot snapshot: dataSnapshot.getChildren()){
                     Vehicle vehicle = snapshot.getValue(Vehicle.class);
+                    Log.d("mm",vehicle.toString());
                     vehicles.add(vehicle);
                 }
+                RecyclerView recyclerView = findViewById(R.id.recycleView2);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                CustomAdapter1 customAdapter = new CustomAdapter1(MainActivity10.this, vehicles);
+                Log.d("mm",vehicles.toString());
+                recyclerView.setAdapter(customAdapter);
             }
 
             @Override
@@ -46,10 +52,5 @@ public class MainActivity10 extends AppCompatActivity {
 
             }
         });
-        RecyclerView recyclerView = findViewById(R.id.recycleView2);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        CustomAdapter1 customAdapter = new CustomAdapter1(MainActivity10.this, vehicles);
-        Log.d("india",vehicles.toString());
-        recyclerView.setAdapter(customAdapter);
     }
 }
