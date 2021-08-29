@@ -22,6 +22,12 @@ class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
         private final TextView textView1;
         private final TextView textView2;
 
+        public TextView getTextView3() {
+            return textView3;
+        }
+
+        private final TextView textView3;
+
         public TextView getTextView2() {
             return textView2;
         }
@@ -33,14 +39,18 @@ class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
                 public void onClick(View v) {
                     Intent intent = new Intent(view.getContext(),MainActivity8.class);
                     intent.putExtra("name", localDataSet.get(getAdapterPosition()).getName());
+                    intent.putExtra("address", localDataSet.get(getAdapterPosition()).getAddress());
+                    intent.putExtra("uid", localDataSet.get(getAdapterPosition()).getUid());
                     intent.putExtra("2Wheeler",localDataSet.get(getAdapterPosition()).getParkingSpaceTwoWheeler());
                     intent.putExtra("4Wheeler",localDataSet.get(getAdapterPosition()).getParkingSpaceFourWheeler());
+                    intent.putExtra("highlight",localDataSet.get(getAdapterPosition()).getHighlight());
                     view.getContext().startActivity(intent);
                 }
             });
             textView = view.findViewById(R.id.textView21);
             textView1 = view.findViewById(R.id.textView23);
             textView2 = view.findViewById(R.id.textView18);
+            textView3 = view.findViewById(R.id.textView19);
 
         }
 
@@ -71,6 +81,7 @@ class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
         viewHolder.getTextView().setText(String.valueOf(localDataSet.get(position).getParkingSpaceTwoWheeler()));
         viewHolder.getTextView1().setText(String.valueOf(localDataSet.get(position).getParkingSpaceFourWheeler()));
         viewHolder.getTextView2().setText(String.valueOf(localDataSet.get(position).getName()));
+        viewHolder.getTextView3().setText(String.valueOf(localDataSet.get(position).getAddress()));
     }
 
     @Override

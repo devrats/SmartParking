@@ -23,7 +23,7 @@
             android:layout_marginLeft="3dp"
             android:layout_marginTop="10dp"
             android:text="Vehicle Number"
-            android:textColor="@color/black"
+            
             android:textSize="20sp" />
 
         <TextView
@@ -33,7 +33,7 @@
             android:layout_marginLeft="3dp"
             android:layout_marginTop="5dp"
             android:text="UP80BW1509"
-            android:textColor="@color/black"
+            
             android:textSize="18sp" />
 
         <TextView
@@ -43,7 +43,7 @@
             android:layout_marginLeft="3dp"
             android:layout_marginTop="10dp"
             android:text="Vehicle Type"
-            android:textColor="@color/black"
+            
             android:textSize="20sp" />
 
         <TextView
@@ -53,7 +53,7 @@
             android:layout_marginLeft="3dp"
             android:layout_marginTop="5dp"
             android:text="2 wheeler"
-            android:textColor="@color/black"
+            
             android:textSize="18sp" />
 
         <TextView
@@ -63,7 +63,7 @@
             android:layout_marginLeft="3dp"
             android:layout_marginTop="10dp"
             android:text="Time"
-            android:textColor="@color/black"
+            
             android:textSize="20sp" />
 
         <TextView
@@ -73,8 +73,15 @@
             android:layout_marginLeft="3dp"
             android:layout_marginTop="5dp"
             android:text="12:00"
-            android:textColor="@color/black"
+            
             android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/button15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Exit Parking" />
+
         <View
             android:id="@+id/SplitLine_hor1"
             android:layout_width="wrap_content"

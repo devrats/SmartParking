@@ -73,6 +73,26 @@
                 android:inputType="textPersonName" />
 
             <TextView
+                android:id="@+id/textView39"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="10dp"
+                android:text="Password"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editTextTextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword" />
+
+            <TextView
                 android:id="@+id/textView14"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -90,7 +110,7 @@
                 android:layout_marginTop="10dp"
                 android:ems="10"
                 android:hint="Mobile"
-                android:inputType="textPersonName" />
+                android:inputType="number" />
 
             <TextView
                 android:id="@+id/textView15"
@@ -392,7 +412,7 @@
                 android:layout_marginTop="10dp"
                 android:ems="10"
                 android:hint="Address"
-                android:inputType="number" />
+                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/editTextTextPersonName29"
@@ -414,7 +434,7 @@
                 android:layout_marginTop="10dp"
                 android:ems="10"
                 android:hint="City"
-                android:inputType="number" />
+                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/editTextTextPersonName30"
@@ -436,7 +456,7 @@
                 android:layout_marginTop="10dp"
                 android:ems="10"
                 android:hint="State"
-                android:inputType="number" />
+                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/textView2"

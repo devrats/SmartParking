@@ -45,7 +45,6 @@
             android:layout_marginTop="10dp"
             android:text="Number of 2 wheeler Parking Available"
             android:textAlignment="center"
-            android:textColor="@color/black"
             android:textSize="18sp" />
 
         <TextView
@@ -55,7 +54,6 @@
             android:layout_marginLeft="3dp"
             android:text="100"
             android:textAlignment="center"
-            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <TextView
@@ -66,7 +64,6 @@
             android:layout_marginTop="10dp"
             android:text="Number of 4 wheeler Parking Available"
             android:textAlignment="center"
-            android:textColor="@color/black"
             android:textSize="18sp" />
 
         <TextView
@@ -76,7 +73,6 @@
             android:layout_marginLeft="3dp"
             android:text="100"
             android:textAlignment="center"
-            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <View
