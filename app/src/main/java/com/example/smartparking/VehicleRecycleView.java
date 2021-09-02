@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -19,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity10 extends AppCompatActivity {
+public class VehicleRecycleView extends AppCompatActivity {
 
     private static List<Vehicle> vehicles = new ArrayList<>();
     FirebaseAuth auth;
@@ -27,7 +26,7 @@ public class MainActivity10 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main10);
+        setContentView(R.layout.vehicle_recycleview_activity);
         auth = FirebaseAuth.getInstance();
         String uid = auth.getCurrentUser().getUid();
         DatabaseReference reference = FirebaseDatabase.getInstance("https://smart-parking-74085-default-rtdb.firebaseio.com/").getReference().child("smartParking").child("parking").child(uid);
@@ -42,7 +41,7 @@ public class MainActivity10 extends AppCompatActivity {
                 }
                 RecyclerView recyclerView = findViewById(R.id.recycleView2);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                CustomAdapter1 customAdapter = new CustomAdapter1(MainActivity10.this, vehicles);
+                CustomAdapter1 customAdapter = new CustomAdapter1(VehicleRecycleView.this, vehicles);
                 Log.d("mm",vehicles.toString());
                 recyclerView.setAdapter(customAdapter);
             }

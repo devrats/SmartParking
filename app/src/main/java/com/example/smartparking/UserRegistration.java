@@ -19,7 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
-public class MainActivity2 extends AppCompatActivity {
+public class UserRegistration extends AppCompatActivity {
 
     private Button button;
     private Button button1;
@@ -31,7 +31,7 @@ public class MainActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.user_regestration_activity);
         auth = FirebaseAuth.getInstance();
         name = findViewById(R.id.editTextTextPersonName);
         email = findViewById(R.id.editTextTextPersonName3);
@@ -40,7 +40,7 @@ public class MainActivity2 extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),MainActivity4.class));
+                startActivity(new Intent(getApplicationContext(), ParkingOwnerRegistration.class));
             }
         });
         button1 = findViewById(R.id.button3);
@@ -75,7 +75,7 @@ public class MainActivity2 extends AppCompatActivity {
                     hashMap.put("role","user");
                     hashMap.put("uid",uid);
                     FirebaseDatabase.getInstance("https://smart-parking-74085-default-rtdb.firebaseio.com/").getReference().child("smartParking").child("user").child(uid).updateChildren(hashMap);
-                    Intent intent = new Intent(getApplicationContext(),MainActivity3.class);
+                    Intent intent = new Intent(getApplicationContext(), Login.class);
                     startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(), "Registration Failed", Toast.LENGTH_SHORT).show();

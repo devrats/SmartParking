@@ -21,9 +21,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
-import java.util.Vector;
 
-public class MainActivity9 extends AppCompatActivity {
+public class BookVehicle extends AppCompatActivity {
 
     private TextView textView;
     private TextView textView1;
@@ -37,7 +36,7 @@ public class MainActivity9 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main9);
+        setContentView(R.layout.book_vehicle_activity);
         auth = FirebaseAuth.getInstance();
         button = findViewById(R.id.button11);
         button2 = findViewById(R.id.button5);
@@ -51,14 +50,14 @@ public class MainActivity9 extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),MainActivity10.class));
+                startActivity(new Intent(getApplicationContext(), VehicleRecycleView.class));
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 auth.signOut();
-                startActivity(new Intent(getApplicationContext(),MainActivity3.class));
+                startActivity(new Intent(getApplicationContext(), Login.class));
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {

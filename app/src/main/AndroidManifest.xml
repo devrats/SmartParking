@@ -29,37 +29,37 @@
         -->
 
         <activity
-            android:name=".MainActivity11"
+            android:name=".VehicleView"
             android:exported="true" />
         <activity
-            android:name=".MainActivity10"
+            android:name=".VehicleRecycleView"
             android:exported="true" />
         <activity
-            android:name=".MainActivity9"
+            android:name=".BookVehicle"
             android:exported="true" />
         <activity
-            android:name=".MainActivity8"
+            android:name=".BookParking"
             android:exported="true" />
         <activity
-            android:name=".MainActivity7"
+            android:name=".Search"
             android:exported="true" />
         <activity
-            android:name=".MainActivity6"
+            android:name=".Parking"
             android:exported="true" />
         <activity
-            android:name=".MainActivity5"
+            android:name=".ParkingRecycleView"
             android:exported="true" />
         <activity
-            android:name=".MainActivity4"
+            android:name=".ParkingOwnerRegistration"
             android:exported="true" />
         <activity
-            android:name=".MainActivity3"
+            android:name=".Login"
             android:exported="true" />
         <activity
-            android:name=".MainActivity2"
+            android:name=".UserRegistration"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -37,7 +37,7 @@ class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(view.getContext(),MainActivity8.class);
+                    Intent intent = new Intent(view.getContext(), BookParking.class);
                     intent.putExtra("name", localDataSet.get(getAdapterPosition()).getName());
                     intent.putExtra("address", localDataSet.get(getAdapterPosition()).getAddress());
                     intent.putExtra("uid", localDataSet.get(getAdapterPosition()).getUid());
@@ -72,7 +72,7 @@ class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         // Create a new view, which defines the UI of the list item
         view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.activity_main6, viewGroup, false);
+                .inflate(R.layout.parking_activity, viewGroup, false);
         return new ViewHolder(view);
     }
 

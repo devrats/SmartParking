@@ -18,9 +18,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
-import java.util.Map;
 
-public class MainActivity4 extends AppCompatActivity {
+public class ParkingOwnerRegistration extends AppCompatActivity {
 
     private Button button;
     private EditText name;
@@ -68,7 +67,7 @@ public class MainActivity4 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main4);
+        setContentView(R.layout.parking_owner_register_activity);
         auth = FirebaseAuth.getInstance();
         button = findViewById(R.id.button7);
         name = findViewById(R.id.editTextTextPersonName2);
@@ -158,7 +157,7 @@ public class MainActivity4 extends AppCompatActivity {
                     hashMap.put("role","owner");
                     hashMap.put("uid",uid);
                     FirebaseDatabase.getInstance("https://smart-parking-74085-default-rtdb.firebaseio.com/").getReference().child("smartParking").child("parkingOwner").child(uid).updateChildren(hashMap);
-                    Intent intent = new Intent(getApplicationContext(),MainActivity3.class);
+                    Intent intent = new Intent(getApplicationContext(), Login.class);
                     startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(), "Registration Failed", Toast.LENGTH_SHORT).show();

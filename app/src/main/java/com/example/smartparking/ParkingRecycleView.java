@@ -13,15 +13,12 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Queue;
 
-public class MainActivity5 extends AppCompatActivity {
+public class ParkingRecycleView extends AppCompatActivity {
 
     private static List<ParkingStation> parkingStations = new ArrayList<>();
     FirebaseAuth auth;
@@ -29,7 +26,7 @@ public class MainActivity5 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main5);
+        setContentView(R.layout.parking_recycleview_activity);
         auth = FirebaseAuth.getInstance();
         Intent intent = getIntent();
         String query = intent.getStringExtra("query");
@@ -46,7 +43,7 @@ public class MainActivity5 extends AppCompatActivity {
                 }
                 RecyclerView recyclerView = findViewById(R.id.recycleView);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                CustomAdapter customAdapter = new CustomAdapter(MainActivity5.this, parkingStations);
+                CustomAdapter customAdapter = new CustomAdapter(ParkingRecycleView.this, parkingStations);
                 recyclerView.setAdapter(customAdapter);
             }
 

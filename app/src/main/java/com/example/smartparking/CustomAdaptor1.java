@@ -19,9 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 class CustomAdapter1 extends RecyclerView.Adapter<CustomAdapter1.ViewHolder1> {
 
@@ -123,7 +121,7 @@ class CustomAdapter1 extends RecyclerView.Adapter<CustomAdapter1.ViewHolder1> {
     @Override
     public ViewHolder1 onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.activity_main11, viewGroup, false);
+                .inflate(R.layout.vehicle_activity, viewGroup, false);
         return new ViewHolder1(view);
     }
 

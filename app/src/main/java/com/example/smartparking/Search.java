@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SearchView;
@@ -12,7 +11,7 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity7 extends AppCompatActivity {
+public class Search extends AppCompatActivity {
 
     TextView textView;
     Button button;
@@ -21,7 +20,7 @@ public class MainActivity7 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main7);
+        setContentView(R.layout.search_activity);
         textView = findViewById(R.id.textView24);
         auth = FirebaseAuth.getInstance();
         Intent intent = getIntent();
@@ -32,7 +31,7 @@ public class MainActivity7 extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                Intent intent1 = new Intent(getApplicationContext(),MainActivity5.class);
+                Intent intent1 = new Intent(getApplicationContext(), ParkingRecycleView.class);
                 intent1.putExtra("query",query);
                 startActivity(intent1);
                 return false;
@@ -47,7 +46,7 @@ public class MainActivity7 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 auth.signOut();
-                startActivity(new Intent(getApplicationContext(),MainActivity3.class));
+                startActivity(new Intent(getApplicationContext(), Login.class));
             }
         });
     }

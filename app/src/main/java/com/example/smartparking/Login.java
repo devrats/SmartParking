@@ -19,7 +19,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -31,7 +30,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class MainActivity3 extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
     private Button button;
     private FirebaseAuth auth;
@@ -43,7 +42,7 @@ public class MainActivity3 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main3);
+        setContentView(R.layout.login_activity);
         // Configure sign-in to request the user's ID, email address, and basic
 // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -115,7 +114,7 @@ public class MainActivity3 extends AppCompatActivity {
                 String personEmail = acct.getEmail();
                 String personId = acct.getId();
                 Uri personPhoto = acct.getPhotoUrl();
-                Intent intent = new Intent(getApplicationContext(),MainActivity7.class);
+                Intent intent = new Intent(getApplicationContext(), Search.class);
                 intent.putExtra("name",personName);
                 startActivity(intent);
             }
@@ -139,11 +138,11 @@ public class MainActivity3 extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         ParkingStation value = dataSnapshot.child("parkingOwner").child(uid).getValue(ParkingStation.class);
                         if(value!=null){
-                            Intent intent = new Intent(getApplicationContext(),MainActivity9.class);
+                            Intent intent = new Intent(getApplicationContext(), BookVehicle.class);
                             intent.putExtra("name",value.getName());
                             startActivity(intent);
                         } else {
-                            Intent intent = new Intent(getApplicationContext(),MainActivity7.class);
+                            Intent intent = new Intent(getApplicationContext(), Search.class);
                             ParkingStation value1 = dataSnapshot.child("user").child(uid).getValue(ParkingStation.class);
                             intent.putExtra("name",value1.getName());
                             startActivity(intent);
