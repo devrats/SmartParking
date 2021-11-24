@@ -27,6 +27,7 @@ public class ParkingStation {
     private String role;
     private String uid;
 
+
     @Override
     public String toString() {
         return "ParkingStation{" +

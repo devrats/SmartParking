@@ -47,6 +47,7 @@ public class Search extends AppCompatActivity {
             public void onClick(View v) {
                 auth.signOut();
                 startActivity(new Intent(getApplicationContext(), Login.class));
+                finish();
             }
         });
     }

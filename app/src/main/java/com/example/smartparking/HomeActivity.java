@@ -23,6 +23,7 @@ public class HomeActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), UserRegistration.class);
                 startActivity(intent);
             }
+
         });
         button1 = findViewById(R.id.button2);
         button1.setOnClickListener(new View.OnClickListener() {

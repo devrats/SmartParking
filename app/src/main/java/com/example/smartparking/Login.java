@@ -141,11 +141,13 @@ public class Login extends AppCompatActivity {
                             Intent intent = new Intent(getApplicationContext(), BookVehicle.class);
                             intent.putExtra("name",value.getName());
                             startActivity(intent);
+                            finish();
                         } else {
                             Intent intent = new Intent(getApplicationContext(), Search.class);
                             ParkingStation value1 = dataSnapshot.child("user").child(uid).getValue(ParkingStation.class);
                             intent.putExtra("name",value1.getName());
                             startActivity(intent);
+                            finish();
                         }
                     }
 

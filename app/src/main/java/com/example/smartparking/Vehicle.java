@@ -8,6 +8,7 @@ public class Vehicle {
     private String type;
     private String time;
 
+
     @Override
     public String toString() {
         return "Vehicle{" +

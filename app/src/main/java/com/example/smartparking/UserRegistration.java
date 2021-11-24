@@ -41,6 +41,7 @@ public class UserRegistration extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), ParkingOwnerRegistration.class));
+                finish();
             }
         });
         button1 = findViewById(R.id.button3);
@@ -77,6 +78,7 @@ public class UserRegistration extends AppCompatActivity {
                     FirebaseDatabase.getInstance("https://smart-parking-74085-default-rtdb.firebaseio.com/").getReference().child("smartParking").child("user").child(uid).updateChildren(hashMap);
                     Intent intent = new Intent(getApplicationContext(), Login.class);
                     startActivity(intent);
+                    finish();
                 } else {
                     Toast.makeText(getApplicationContext(), "Registration Failed", Toast.LENGTH_SHORT).show();
                 }

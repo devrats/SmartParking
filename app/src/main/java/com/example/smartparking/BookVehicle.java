@@ -58,6 +58,7 @@ public class BookVehicle extends AppCompatActivity {
             public void onClick(View v) {
                 auth.signOut();
                 startActivity(new Intent(getApplicationContext(), Login.class));
+                finish();
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +70,7 @@ public class BookVehicle extends AppCompatActivity {
                 hashMap.put("vehicleNumber",vehicleNumber);
                 hashMap.put("time",time);
                 int selectedId = radioGroup.getCheckedRadioButtonId();
-                radioButton = (RadioButton) findViewById(selectedId);
+                radioButton = findViewById(selectedId);
                 if(selectedId==-1){
                     Toast.makeText(getApplicationContext(),"Nothing selected", Toast.LENGTH_SHORT).show();
                 }

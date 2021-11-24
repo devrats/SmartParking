@@ -9,6 +9,7 @@ public class User {
     private String role;
     private String uid;
 
+
     @Override
     public String toString() {
         return "User{" +
